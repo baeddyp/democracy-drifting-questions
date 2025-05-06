@@ -9,7 +9,6 @@ const Index = () => {
   const [questions, setQuestions] = useState<Array<{ text: string, position: { x: number, y: number }, colorVariant: number }>>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedQuestion, setSelectedQuestion] = useState<string>('');
-  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   useEffect(() => {
     // Get 15 random questions
@@ -25,12 +24,10 @@ const Index = () => {
   const handlePillClick = (question: string) => {
     setSelectedQuestion(question);
     setModalOpen(true);
-    setIsPaused(true);
   };
 
   const handleModalClose = () => {
     setModalOpen(false);
-    setIsPaused(false);
   };
 
   return (
@@ -50,7 +47,8 @@ const Index = () => {
             initialPosition={question.position}
             className={`text-sm sm:text-base lg:text-lg ${index % 3 === 0 ? 'font-semibold' : ''}`}
             onClick={handlePillClick}
-            isPaused={isPaused}
+            isPaused={modalOpen}
+            isSelected={question.text === selectedQuestion}
             colorVariant={question.colorVariant}
           />
         ))}

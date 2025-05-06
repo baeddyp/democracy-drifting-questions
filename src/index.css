@@ -35,18 +35,18 @@
 
     --radius: 0.5rem;
 
-    /* Brighter colors for pills */
-    --pill-bg-1: 169 100% 76%;
+    /* Brighter colors for pills with deeper borders for 3D effect */
+    --pill-bg-1: 42 100% 85%;
     --pill-bg-2: 43 100% 77%;
     --pill-bg-3: 278 90% 81%;
     --pill-bg-4: 329 91% 76%;
     --pill-bg-5: 197 100% 77%;
     
-    --pill-border-1: 169 80% 50%;
-    --pill-border-2: 43 80% 50%;
-    --pill-border-3: 278 70% 55%;
-    --pill-border-4: 329 75% 55%;
-    --pill-border-5: 197 80% 50%;
+    --pill-border-1: 42 85% 60%;
+    --pill-border-2: 43 85% 55%;
+    --pill-border-3: 278 75% 55%;
+    --pill-border-4: 329 80% 55%;
+    --pill-border-5: 197 85% 60%;
   }
 
   .dark {
@@ -93,24 +93,37 @@
   animation-delay: calc(var(--delay) * -1s);
   z-index: 10;
   will-change: transform;
+  /* Mike and Ike pill style */
+  border-radius: 9999px;
+  aspect-ratio: 3 / 1;
+  box-shadow: 
+    inset 0 -4px 6px rgba(0, 0, 0, 0.1),
+    inset 0 4px 6px rgba(255, 255, 255, 0.5),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
 }
 
 .pill-variant-1 {
-  @apply bg-[hsl(var(--pill-bg-1))] border-[hsl(var(--pill-border-1))];
+  background: linear-gradient(180deg, hsl(var(--pill-bg-1)) 0%, hsl(var(--pill-border-1)) 100%);
 }
 
 .pill-variant-2 {
-  @apply bg-[hsl(var(--pill-bg-2))] border-[hsl(var(--pill-border-2))];
+  background: linear-gradient(180deg, hsl(var(--pill-bg-2)) 0%, hsl(var(--pill-border-2)) 100%);
 }
 
 .pill-variant-3 {
-  @apply bg-[hsl(var(--pill-bg-3))] border-[hsl(var(--pill-border-3))];
+  background: linear-gradient(180deg, hsl(var(--pill-bg-3)) 0%, hsl(var(--pill-border-3)) 100%);
 }
 
 .pill-variant-4 {
-  @apply bg-[hsl(var(--pill-bg-4))] border-[hsl(var(--pill-border-4))];
+  background: linear-gradient(180deg, hsl(var(--pill-bg-4)) 0%, hsl(var(--pill-border-4)) 100%);
 }
 
 .pill-variant-5 {
-  @apply bg-[hsl(var(--pill-bg-5))] border-[hsl(var(--pill-border-5))];
+  background: linear-gradient(180deg, hsl(var(--pill-bg-5)) 0%, hsl(var(--pill-border-5)) 100%);
 }

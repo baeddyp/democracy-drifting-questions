@@ -9,6 +9,7 @@ interface FloatingPillProps {
   onClick?: (question: string) => void;
   isPaused?: boolean;
   colorVariant?: number;
+  isSelected?: boolean;
 }
 
 const FloatingPill: React.FC<FloatingPillProps> = ({ 
@@ -17,7 +18,8 @@ const FloatingPill: React.FC<FloatingPillProps> = ({
   className,
   onClick,
   isPaused = false,
-  colorVariant = 1
+  colorVariant = 1,
+  isSelected = false
 }) => {
   const pillRef = useRef<HTMLDivElement>(null);
   
@@ -52,17 +54,18 @@ const FloatingPill: React.FC<FloatingPillProps> = ({
     <div 
       ref={pillRef}
       className={cn(
-        "floating-pill px-4 py-2 rounded-full border-2 text-black font-medium shadow-lg max-w-xs cursor-pointer transition-all",
+        "floating-pill px-6 py-3 rounded-full shadow-lg max-w-xs cursor-pointer transition-all",
         `pill-variant-${colorVariant}`,
-        isPaused ? "!animation-play-state-paused" : "",
+        isSelected ? "z-50 scale-110" : "",
+        isPaused && isSelected ? "!animation-play-state-paused" : "",
         className
       )}
       onClick={handleClick}
       style={{
-        animationPlayState: isPaused ? 'paused' : 'running'
+        animationPlayState: isPaused && isSelected ? 'paused' : 'running'
       }}
     >
-      {question}
+      <span className="font-medium text-blue-900">{question}</span>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { getRandomQuestions, generateRandomPosition } from '@/services/questionS
 import { getAnswerForQuestion } from '@/services/answerService';
 
 const Index = () => {
-  const [questions, setQuestions] = useState<Array<{ text: string, position: { x: number, y: number } }>>([]);
+  const [questions, setQuestions] = useState<Array<{ text: string, position: { x: number, y: number }, colorVariant: number }>>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedQuestion, setSelectedQuestion] = useState<string>('');
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -15,7 +15,8 @@ const Index = () => {
     // Get 15 random questions
     const randomQuestions = getRandomQuestions(15).map(question => ({
       text: question,
-      position: generateRandomPosition()
+      position: generateRandomPosition(),
+      colorVariant: Math.floor(Math.random() * 5) + 1 // Random number between 1-5 for color variants
     }));
     
     setQuestions(randomQuestions);
@@ -50,6 +51,7 @@ const Index = () => {
             className={`text-sm sm:text-base lg:text-lg ${index % 3 === 0 ? 'font-semibold' : ''}`}
             onClick={handlePillClick}
             isPaused={isPaused}
+            colorVariant={question.colorVariant}
           />
         ))}
         

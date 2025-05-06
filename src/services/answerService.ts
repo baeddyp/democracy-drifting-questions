@@ -3,17 +3,17 @@
 // In a real application, these could come from an API or database
 
 const questionAnswers: Record<string, string> = {
-  "What if everyone's vote counted equally?": 
-    "This concept, often called 'one person, one vote,' challenges weighted voting systems. It would fundamentally reshape power dynamics in many democracies, potentially giving more voice to currently underrepresented populations.",
+  "What if AI could translate any language in real-time?": 
+    "Real-time AI translation could break down language barriers globally, enabling seamless cross-cultural communication. This would revolutionize international business, tourism, diplomacy, and potentially help preserve endangered languages.",
   
-  "What if politicians were held accountable by real-time public feedback?":
-    "Real-time accountability could create more responsive governance but might also lead to short-term decision making. It raises questions about the balance between responsiveness and thoughtful policy development.",
+  "What if AI could predict natural disasters with 100% accuracy?": 
+    "Perfect disaster prediction would save countless lives and allow for targeted evacuations rather than mass ones. It could transform emergency management, insurance, and how we build cities in disaster-prone areas.",
   
-  "What if voting was mandatory?":
-    "Mandatory voting, as implemented in countries like Australia, ensures higher participation rates but raises questions about freedom of choice. It could potentially reduce polarization by including more moderate voters.",
+  "What if AI managed our cities' traffic systems?": 
+    "AI traffic management could reduce congestion by up to 30%, lower emissions, and save billions in lost productivity. Dynamic routing would become normal, with traffic lights and flow patterns adjusting in real-time to demand.",
 };
 
 export const getAnswerForQuestion = (question: string): string => {
   return questionAnswers[question] || 
-    "This question invites us to reimagine how democratic systems could function differently. What possibilities do you see?";
+    "This question invites us to imagine how artificial intelligence could transform our world. What possibilities and challenges might emerge?";
 };

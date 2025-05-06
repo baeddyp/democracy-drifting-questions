@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,8 +35,18 @@
 
     --radius: 0.5rem;
 
-    --pill-bg: 30 95% 81%;
-    --pill-border: 20 56% 54%;
+    /* Brighter colors for pills */
+    --pill-bg-1: 169 100% 76%;
+    --pill-bg-2: 43 100% 77%;
+    --pill-bg-3: 278 90% 81%;
+    --pill-bg-4: 329 91% 76%;
+    --pill-bg-5: 197 100% 77%;
+    
+    --pill-border-1: 169 80% 50%;
+    --pill-border-2: 43 80% 50%;
+    --pill-border-3: 278 70% 55%;
+    --pill-border-4: 329 75% 55%;
+    --pill-border-5: 197 80% 50%;
   }
 
   .dark {
@@ -82,4 +93,24 @@
   animation-delay: calc(var(--delay) * -1s);
   z-index: 10;
   will-change: transform;
+}
+
+.pill-variant-1 {
+  @apply bg-[hsl(var(--pill-bg-1))] border-[hsl(var(--pill-border-1))];
+}
+
+.pill-variant-2 {
+  @apply bg-[hsl(var(--pill-bg-2))] border-[hsl(var(--pill-border-2))];
+}
+
+.pill-variant-3 {
+  @apply bg-[hsl(var(--pill-bg-3))] border-[hsl(var(--pill-border-3))];
+}
+
+.pill-variant-4 {
+  @apply bg-[hsl(var(--pill-bg-4))] border-[hsl(var(--pill-border-4))];
+}
+
+.pill-variant-5 {
+  @apply bg-[hsl(var(--pill-bg-5))] border-[hsl(var(--pill-border-5))];
 }

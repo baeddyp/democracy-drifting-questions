@@ -65,7 +65,7 @@ const FloatingPill: React.FC<FloatingPillProps> = ({
         animationPlayState: isPaused && isSelected ? 'paused' : 'running'
       }}
     >
-      <span className="font-medium text-blue-900">{question}</span>
+      <span className="font-medium text-[#1A2878]">{question}</span>
     </div>
   );
 };

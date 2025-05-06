@@ -5,16 +5,16 @@
 
 @layer base {
   :root {
-    --background: 220 30% 15%;
-    --foreground: 0 0% 98%;
+    --background: 40 100% 65%;
+    --foreground: 220 100% 25%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 48 100% 97%;
+    --popover-foreground: 220 100% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 220 100% 25%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,23 +35,23 @@
 
     --radius: 0.5rem;
 
-    /* Brighter colors for pills with deeper borders for 3D effect */
-    --pill-bg-1: 42 100% 85%;
-    --pill-bg-2: 43 100% 77%;
-    --pill-bg-3: 278 90% 81%;
-    --pill-bg-4: 329 91% 76%;
-    --pill-bg-5: 197 100% 77%;
+    /* Brighter colors for pills with deeper borders for 3D effect - updated to match reference */
+    --pill-bg-1: 48 100% 85%;
+    --pill-bg-2: 40 100% 82%;
+    --pill-bg-3: 32 100% 80%;
+    --pill-bg-4: 44 100% 87%;
+    --pill-bg-5: 39 100% 84%;
     
-    --pill-border-1: 42 85% 60%;
-    --pill-border-2: 43 85% 55%;
-    --pill-border-3: 278 75% 55%;
-    --pill-border-4: 329 80% 55%;
-    --pill-border-5: 197 85% 60%;
+    --pill-border-1: 48 85% 70%;
+    --pill-border-2: 40 85% 65%;
+    --pill-border-3: 32 75% 60%;
+    --pill-border-4: 44 80% 70%;
+    --pill-border-5: 39 85% 70%;
   }
 
   .dark {
-    --background: 220 30% 15%;
-    --foreground: 210 40% 98%;
+    --background: 40 100% 65%;
+    --foreground: 220 100% 25%;
   }
 }
 
@@ -93,9 +93,9 @@
   animation-delay: calc(var(--delay) * -1s);
   z-index: 10;
   will-change: transform;
-  /* Mike and Ike pill style */
+  /* Mike and Ike pill style - refined based on reference */
   border-radius: 9999px;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 3.5 / 1;
   box-shadow: 
     inset 0 -4px 6px rgba(0, 0, 0, 0.1),
     inset 0 4px 6px rgba(255, 255, 255, 0.5),
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
+  min-width: 200px;
 }
 
 .pill-variant-1 {

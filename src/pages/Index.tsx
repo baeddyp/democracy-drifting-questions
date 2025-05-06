@@ -1,10 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import FloatingPill from '@/components/FloatingPill';
+import QuestionModal from '@/components/QuestionModal';
 import { getRandomQuestions, generateRandomPosition } from '@/services/questionService';
+import { getAnswerForQuestion } from '@/services/answerService';
 
 const Index = () => {
   const [questions, setQuestions] = useState<Array<{ text: string, position: { x: number, y: number } }>>([]);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [selectedQuestion, setSelectedQuestion] = useState<string>('');
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   useEffect(() => {
     // Get 15 random questions
@@ -15,6 +20,17 @@ const Index = () => {
     
     setQuestions(randomQuestions);
   }, []);
+
+  const handlePillClick = (question: string) => {
+    setSelectedQuestion(question);
+    setModalOpen(true);
+    setIsPaused(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setIsPaused(false);
+  };
 
   return (
     <div className="bg-[#1A1F2C] w-full h-screen flex items-center justify-center overflow-hidden">
@@ -32,8 +48,17 @@ const Index = () => {
             question={question.text}
             initialPosition={question.position}
             className={`text-sm sm:text-base lg:text-lg ${index % 3 === 0 ? 'font-semibold' : ''}`}
+            onClick={handlePillClick}
+            isPaused={isPaused}
           />
         ))}
+        
+        <QuestionModal 
+          isOpen={modalOpen}
+          onClose={handleModalClose}
+          question={selectedQuestion}
+          answer={getAnswerForQuestion(selectedQuestion)}
+        />
       </div>
     </div>
   );
